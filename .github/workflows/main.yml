@@ -1,0 +1,32 @@
+name: Start build
+
+on:
+  push:
+    branches:
+      [main]
+  pull_request:
+    branches:
+      [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        platform: [x64, x86]
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Setting up .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: '8.0.x'
+
+    - name: Restoring dependencies
+      run: dotnet restore
+
+    - name: Building project
+      run: dotnet build --configuration Release --runtime ${{ matrix.platform }}
