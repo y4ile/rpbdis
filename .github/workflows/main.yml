@@ -10,7 +10,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     strategy:
       matrix:
@@ -20,13 +20,14 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v4
 
-    - name: Setting up .NET
-      uses: actions/setup-dotnet@v1
-      with:
-        dotnet-version: '8.0.x'
+    - name: Setup MSBuild
+      uses: microsoft/setup-msbuild@v2
 
-    - name: Restoring dependencies
-      run: dotnet restore
+    - name: Setup NuGet.exe for use with actions
+      uses: NuGet/setup-nuget@v2.0.0
 
-    - name: Building project
-      run: dotnet build --configuration Release --arch ${{ matrix.platform }}
+    - name: Restore NuGet packages
+      run: nuget restore lab2.sln 
+
+    - name: Build the solution
+      run: msbuild lab2.sln /p:Configuration=Release /p:Platform=${{ matrix.platform }}
