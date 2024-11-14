@@ -1,6 +1,6 @@
 # РПБДИС Laboratory Works
 
-## [![Build](https://github.com/y4ile/lab2/actions/workflows/main.yml/badge.svg)](https://github.com/y4ile/lab2/actions/workflows/main.yml) <- Состояние всех работ
+[![Build](https://github.com/y4ile/lab2/actions/workflows/main.yml/badge.svg)](https://github.com/y4ile/lab2/actions/workflows/main.yml)
 
 ## Лабораторная работа №3 / Цель работы: 
 
