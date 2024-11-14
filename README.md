@@ -1,7 +1,5 @@
-# Laboratory Work 2
+# РПБДИС Laboratory Works
 
-[![Build](https://github.com/y4ile/lab2/actions/workflows/main.yml/badge.svg)](https://github.com/y4ile/lab2/actions/workflows/main.yml)
+## Лабораторная работа №3 [![Build](https://github.com/y4ile/lab2/actions/workflows/main.yml/badge.svg)](https://github.com/y4ile/lab2/actions/workflows/main.yml) / Цель работы: 
 
-## Цель работы
-
-Ознакомиться с возможностями ENTITY FRAMEWORK и получить навыки написания LINQ запросов к объектам, связанным с таблицами базы данных СУБД MS SQL Server
+Ознакомиться c методами обработкой HTTP средствами ASP.NET Core, методами сохранения состояния приложения и повышение производительности приложений путем использования разных видов кэширования

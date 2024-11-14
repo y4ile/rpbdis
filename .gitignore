@@ -3,6 +3,7 @@
 *.user
 *.sln.docstates
 *.docx
+lab3/appsettings.json
 
 # Build results
 [Dd]ebug/
