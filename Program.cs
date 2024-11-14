@@ -42,7 +42,7 @@ namespace lab2
                 Operations.SelectPlansWithUserIDAbove(dbContext, 450);
 
                 // Task 3.2.6
-                /*
+                
                 Console.WriteLine("\nPress any key to process INSERT #1 operation");
                 Console.ReadKey();
                 string login = "";
@@ -65,10 +65,8 @@ namespace lab2
                 }
                 Operations.InsertUser(dbContext, login, pass, email);
                 Operations.SelectUserByEmail(dbContext, email);
-                */
 
                 // Task 3.2.7
-                /*
                 Console.WriteLine("\nPress any key to process INSERT #2 operation");
                 Console.ReadKey();
                 string planName = "";
@@ -91,13 +89,12 @@ namespace lab2
                 }
                 Operations.InsertStudyPlan(dbContext, planName, directionId, userId);
                 Operations.SelectPlanByName(dbContext, planName);
-                */
 
                 // Task 3.2.8
                 Console.WriteLine("\nPress any key to process DELETE #1 operation\nAll linked values in other tables also will be deleted!");
                 Console.ReadKey();
                 Console.WriteLine("Users size before: " + dbContext.Users.ToArray().Length.ToString());
-                int userId = -1;
+                userId = -1;
                 while (userId < 0)
                 {
                     Console.WriteLine("\nEnter userId to delete:");
@@ -110,7 +107,7 @@ namespace lab2
                 Console.WriteLine("\nPress any key to process DELETE #2 operation");
                 Console.ReadKey();
                 Console.WriteLine("StudyPlans size before: " + dbContext.StudyPlans.ToArray().Length.ToString());
-                string planName = "";
+                planName = "";
                 while (planName.IsNullOrEmpty())
                 {
                     Console.WriteLine("\nEnter plan name to delete:");
@@ -122,13 +119,13 @@ namespace lab2
                 // Task 3.2.10
                 Console.WriteLine("\nPress any key to process UPDATE operation");
                 Console.ReadKey();
-                string email = "";
+                email = "";
                 while (email.IsNullOrEmpty())
                 {
                     Console.WriteLine("\nEnter user email to update:");
                     email = Console.ReadLine();
                 }
-                string login = "";
+                login = "";
                 while (login.IsNullOrEmpty())
                 {
                     Console.WriteLine("\nEnter new user login:");
