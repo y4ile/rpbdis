@@ -31,7 +31,6 @@ namespace lab3.Services
 
                 if (cachedData != null)
                 {
-                    // Установка данных в кэш
                     _cache.Set(cacheKey, cachedData, TimeSpan.FromSeconds(_cacheDurationSeconds));
                 }
             }

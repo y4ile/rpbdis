@@ -1,0 +1,27 @@
+﻿@model IEnumerable<lab4.Models.User>
+
+@{ ViewData["Title"] = "Users"; }
+
+<h1>Users</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Login</th>
+            <th>Email</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td>@user.Login</td>
+                <td>@user.Email</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@user.UserID">Details</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

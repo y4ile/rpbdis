@@ -1,0 +1,27 @@
+﻿@model IEnumerable<lab4.Models.Status>
+
+@{ ViewData["Title"] = "Statuses"; }
+
+<h1>Statuses</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Status Name</th>
+            <th>Number of Plan Stages</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var status in Model)
+        {
+            <tr>
+                <td>@status.StatusName</td>
+                <td>@status.PlanStages.Count()</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@status.StatusId">Details</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

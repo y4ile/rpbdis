@@ -1,0 +1,47 @@
+﻿@model lab4.Models.DevelopmentDirection
+
+@{
+    ViewData["Title"] = "Development Direction Details";
+}
+
+<h1>Development Direction Details</h1>
+
+<div>
+    <h4>@Model.DirectionName</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            Direction ID
+        </dt>
+        <dd class="col-sm-10">
+            @Model.DirectionID
+        </dd>
+    </dl>
+</div>
+
+<h3>Associated Study Plans</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Plan Name</th>
+            <th>User</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var plan in Model.StudyPlans)
+        {
+            <tr>
+                <td>@plan.PlanName</td>
+                <td>@plan.User.Login (@plan.User.Email)</td>
+                <td>
+                    <a asp-controller="StudyPlans" asp-action="Details" asp-route-id="@plan.PlanID">Details</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div>
+    <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+</div>

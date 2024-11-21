@@ -1,0 +1,53 @@
+﻿@model lab4.Models.StudyPlan
+
+@{ ViewData["Title"] = "Study Plan Details"; }
+
+<h1>Study Plan Details</h1>
+
+<div>
+    <h4>@Model.PlanName</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            Direction
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Direction.DirectionName
+        </dd>
+        <dt class="col-sm-2">
+            User
+        </dt>
+        <dd class="col-sm-10">
+            @Model.User.Login (@Model.User.Email)
+        </dd>
+    </dl>
+</div>
+
+<h3>Plan Stages</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Stage Name</th>
+            <th>Status</th>
+            <th>Priority</th>
+            <th>Open Date</th>
+            <th>Close Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var stage in Model.PlanStages)
+        {
+            <tr>
+                <td>@stage.StageName</td>
+                <td>@stage.Status.StatusName</td>
+                <td>@stage.Priority</td>
+                <td>@stage.OpenDate</td>
+                <td>@(stage.CloseDate.HasValue ? stage.CloseDate.ToString() : "N/A")</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div>
+    <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+</div>

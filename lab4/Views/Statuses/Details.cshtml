@@ -1,0 +1,51 @@
+﻿@model lab4.Models.Status
+
+@{ ViewData["Title"] = "Status Details"; }
+
+<h1>Status Details</h1>
+
+<div>
+    <h4>@Model.StatusName</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            Status ID
+        </dt>
+        <dd class="col-sm-10">
+            @Model.StatusId
+        </dd>
+    </dl>
+</div>
+
+<h3>Associated Plan Stages</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Stage Name</th>
+            <th>Plan</th>
+            <th>Priority</th>
+            <th>Open Date</th>
+            <th>Close Date</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var stage in Model.PlanStages)
+        {
+            <tr>
+                <td>@stage.StageName</td>
+                <td>@stage.Plan.PlanName</td>
+                <td>@stage.Priority</td>
+                <td>@stage.OpenDate.ToString("yyyy-MM-dd")</td>
+                <td>@(stage.CloseDate.HasValue ? stage.CloseDate.Value.ToString("yyyy-MM-dd") : "N/A")</td>
+                <td>
+                    <a asp-controller="PlanStages" asp-action="Details" asp-route-id="@stage.StageID">Details</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div>
+    <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+</div>

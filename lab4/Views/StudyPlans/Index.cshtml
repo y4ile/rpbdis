@@ -1,0 +1,31 @@
+﻿@model IEnumerable<lab4.ViewModels.StudyPlanViewModel>
+
+@{ ViewData["Title"] = "Study Plans"; }
+
+<h1>Study Plans</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Plan Name</th>
+            <th>Direction</th>
+            <th>User</th>
+            <th>Number of Stages</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var plan in Model)
+        {
+            <tr>
+                <td>@plan.PlanName</td>
+                <td>@plan.DirectionName</td>
+                <td>@plan.UserLogin</td>
+                <td>@plan.NumberOfStages</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@plan.PlanID">Details</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

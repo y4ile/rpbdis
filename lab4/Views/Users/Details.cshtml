@@ -1,0 +1,22 @@
+﻿@model lab4.Models.User
+
+@{ ViewData["Title"] = "User Details"; }
+
+<h1>User Details</h1>
+
+<div>
+    <h4>@Model.Login</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            Email
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Email
+        </dd>
+    </dl>
+</div>
+
+<div>
+    <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+</div>

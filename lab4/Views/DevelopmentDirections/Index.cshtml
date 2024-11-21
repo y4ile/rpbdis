@@ -1,0 +1,29 @@
+﻿@model IEnumerable<lab4.Models.DevelopmentDirection>
+
+@{
+    ViewData["Title"] = "Development Directions";
+}
+
+<h1>Development Directions</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Direction Name</th>
+            <th>Number of Study Plans</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var direction in Model)
+        {
+            <tr>
+                <td>@direction.DirectionName</td>
+                <td>@direction.StudyPlans.Count()</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@direction.DirectionID">Details</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

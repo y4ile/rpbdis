@@ -1,0 +1,35 @@
+﻿@model IEnumerable<lab4.Models.PlanStage>
+
+@{ ViewData["Title"] = "Plan Stages"; }
+
+<h1>Plan Stages</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Stage Name</th>
+            <th>Plan</th>
+            <th>Status</th>
+            <th>Priority</th>
+            <th>Open Date</th>
+            <th>Close Date</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var stage in Model)
+        {
+            <tr>
+                <td>@stage.StageName</td>
+                <td>@stage.Plan.PlanName</td>
+                <td>@stage.Status.StatusName</td>
+                <td>@stage.Priority</td>
+                <td>@stage.OpenDate.ToString("yyyy-MM-dd")</td>
+                <td>@(stage.CloseDate.HasValue ? stage.CloseDate.Value.ToString("yyyy-MM-dd") : "N/A")</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@stage.StageID">Details</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

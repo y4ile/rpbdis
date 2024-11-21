@@ -1,0 +1,52 @@
+﻿@model lab4.Models.PlanStage
+
+@{ ViewData["Title"] = "Plan Stage Details"; }
+
+<h1>Plan Stage Details</h1>
+
+<div>
+    <h4>@Model.StageName</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            Stage ID
+        </dt>
+        <dd class="col-sm-10">
+            @Model.StageID
+        </dd>
+        <dt class="col-sm-2">
+            Plan
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Plan.PlanName
+        </dd>
+        <dt class="col-sm-2">
+            Status
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Status.StatusName
+        </dd>
+        <dt class="col-sm-2">
+            Priority
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Priority
+        </dd>
+        <dt class="col-sm-2">
+            Open Date
+        </dt>
+        <dd class="col-sm-10">
+            @Model.OpenDate.ToString("yyyy-MM-dd")
+        </dd>
+        <dt class="col-sm-2">
+            Close Date
+        </dt>
+        <dd class="col-sm-10">
+            @(Model.CloseDate.HasValue ? Model.CloseDate.Value.ToString("yyyy-MM-dd") : "N/A")
+        </dd>
+    </dl>
+</div>
+
+<div>
+    <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+</div>
